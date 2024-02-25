@@ -1,0 +1,14 @@
+{
+	"name": "modul-is/rector",
+	"description": "Internal rules for rector.",
+	"keywords": ["Modul IS", "Rector"],
+	"homepage": "https://modul-is.cz",
+	"require": {
+		"php": "8.2",
+		"rector/rector": "^1.0"
+	},
+	"autoload": {
+		"classmap": ["src/"]
+	},
+	"minimum-stability": "dev"
+}
