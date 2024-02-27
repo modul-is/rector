@@ -10,5 +10,8 @@
 	"autoload": {
 		"classmap": ["src/"]
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"bin": [
+		"rector.php"
+	]
 }
