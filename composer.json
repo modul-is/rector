@@ -4,7 +4,7 @@
 	"keywords": ["Modul IS", "Rector"],
 	"homepage": "https://modul-is.cz",
 	"require": {
-		"php": "8.2",
+		"php": "^8.2",
 		"rector/rector": "^1.0"
 	},
 	"autoload": {
