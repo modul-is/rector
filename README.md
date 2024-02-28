@@ -3,7 +3,7 @@
 Přidání do Composeru:
 
 ```console
-composer require rector/rector --dev
+composer require modul-is/rector --dev
 ```
 
 Zkopírujte soubor
