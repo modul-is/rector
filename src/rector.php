@@ -5,13 +5,17 @@ declare(strict_types=1);
 use Rector\Config\RectorConfig;
 use Rector\Renaming\Rector\ClassConstFetch\RenameClassConstFetchRector;
 use Rector\Renaming\ValueObject\RenameClassConstFetch;
+use Rector\Set\ValueObject\SetList;
 
 
 return RectorConfig::configure()
 	->withPaths([
-		__DIR__ . '/app'
+		__DIR__ . DIRECTORY_SEPARATOR . 'app'
 	])
 	->withPhpSets(php82: true)
+	->withSets([
+		SetList::CODE_QUALITY
+	])
 	->withConfiguredRule(RenameClassConstFetchRector::class, [
 		new RenameClassConstFetch('Nette\Application\UI\Form', 'FILLED', 'Filled'),
 		new RenameClassConstFetch('Nette\Application\UI\Form', 'VALID', 'Valid'),
