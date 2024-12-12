@@ -13,7 +13,7 @@ return RectorConfig::configure()
 		__DIR__ . DIRECTORY_SEPARATOR . 'app'
 	])
 	->withPhpSets(php83: true)
-	->withIndent('tab')
+	->withIndent('	')
 	->withSets([
 		SetList::CODE_QUALITY
 	])
