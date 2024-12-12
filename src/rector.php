@@ -6,6 +6,7 @@ use Rector\Config\RectorConfig;
 use Rector\Renaming\Rector\ClassConstFetch\RenameClassConstFetchRector;
 use Rector\Renaming\ValueObject\RenameClassConstFetch;
 use Rector\Set\ValueObject\SetList;
+use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
 
 
 return RectorConfig::configure()
@@ -14,6 +15,9 @@ return RectorConfig::configure()
 	])
 	->withPhpSets(php83: true)
 	->withIndent('	')
+	->withSkip([
+		FlipTypeControlToUseExclusiveTypeRector::class
+	])
 	->withSets([
 		SetList::CODE_QUALITY
 	])
@@ -217,33 +221,33 @@ return RectorConfig::configure()
 		new RenameClassConstFetch('Nette\Schema\Message', 'UNEXPECTED_ITEM', 'UnexpectedItem'),
 		new RenameClassConstFetch('Nette\Schema\Message', 'VALUE_OUT_OF_RANGE', 'ValueOutOfRange'),
 		new RenameClassConstFetch('Nette\Utils\Image', 'EMPTY_GIF', 'EmptyGIF'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'EXACT', 'Cover'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'FILL', 'OrBigger'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'FIT', 'OrSmaller'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'SHRINK_ONLY', 'ShrinkOnly'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'STRETCH', 'Stretch'),
-		new RenameClassConstFetch('Tester\Environment', 'COLORS', 'VariableColors'),
-		new RenameClassConstFetch('Tester\Environment', 'COVERAGE', 'VariableCoverage'),
-		new RenameClassConstFetch('Tester\Environment', 'COVERAGE_ENGINE', 'VariableCoverageEngine'),
-		new RenameClassConstFetch('Tester\Environment', 'RUNNER', 'VariableRunner'),
-		new RenameClassConstFetch('Tester\Environment', 'THREAD', 'VariableThread'),
-		new RenameClassConstFetch('Tracy\Debugger', 'COOKIE_SECRET', 'CookieSecret'),
-		new RenameClassConstFetch('Tracy\Debugger', 'DETECT', 'Detect'),
-		new RenameClassConstFetch('Tracy\Debugger', 'DEVELOPMENT', 'Development'),
-		new RenameClassConstFetch('Tracy\Debugger', 'PRODUCTION', 'Production'),
-		new RenameClassConstFetch('Tracy\Debugger', 'VERSION', 'Version'),
-		new RenameClassConstFetch('Latte\Engine', 'CONTENT_CSS', 'Css'),
-		new RenameClassConstFetch('Latte\Engine', 'CONTENT_HTML', 'Html'),
-		new RenameClassConstFetch('Latte\Engine', 'CONTENT_ICAL', 'ICal'),
-		new RenameClassConstFetch('Latte\Engine', 'CONTENT_JS', 'JavaScript'),
-		new RenameClassConstFetch('Latte\Engine', 'CONTENT_TEXT', 'Text'),
-		new RenameClassConstFetch('Latte\Engine', 'CONTENT_XML', 'Xml'),
-		new RenameClassConstFetch('Nette\Security\UserStorage', 'LOGOUT_INACTIVITY', 'LogoutInactivity'),
-		new RenameClassConstFetch('Nette\Security\UserStorage', 'LOGOUT_MANUAL', 'LogoutManual'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'AVIF', 'AVIF'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'BMP', 'BMP'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'GIF', 'GIF'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'JPEG', 'JPEG'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'PNG', 'PNG'),
-		new RenameClassConstFetch('Nette\Utils\Image', 'WEBP', 'WEBP')
+		new RenameClassConstFetch('Nette\Utils\Image', oldConstant: 'EXACT', newConstant: 'Cover'),
+		new RenameClassConstFetch(oldClass: 'Nette\Utils\Image', oldConstant: 'FILL', newConstant: 'OrBigger'),
+		new RenameClassConstFetch(oldClass: 'Nette\Utils\Image', oldConstant: 'FIT', newConstant: 'OrSmaller'),
+		new RenameClassConstFetch(oldClass: 'Nette\Utils\Image', oldConstant: 'SHRINK_ONLY', newConstant: 'ShrinkOnly'),
+		new RenameClassConstFetch(oldClass: 'Nette\Utils\Image', oldConstant: 'STRETCH', newConstant: 'Stretch'),
+		new RenameClassConstFetch(oldClass: 'Tester\Environment', oldConstant: 'COLORS', newConstant: 'VariableColors'),
+		new RenameClassConstFetch(oldClass: 'Tester\Environment', oldConstant: 'COVERAGE', newConstant: 'VariableCoverage'),
+		new RenameClassConstFetch(oldClass: 'Tester\Environment', oldConstant: 'COVERAGE_ENGINE', newConstant: 'VariableCoverageEngine'),
+		new RenameClassConstFetch(oldClass: 'Tester\Environment', oldConstant: 'RUNNER', newConstant: 'VariableRunner'),
+		new RenameClassConstFetch(oldClass: 'Tester\Environment', oldConstant: 'THREAD', newConstant: 'VariableThread'),
+		new RenameClassConstFetch(oldClass: 'Tracy\Debugger', oldConstant: 'COOKIE_SECRET', newConstant: 'CookieSecret'),
+		new RenameClassConstFetch(oldClass: 'Tracy\Debugger', oldConstant: 'DETECT', newConstant: 'Detect'),
+		new RenameClassConstFetch(oldClass: 'Tracy\Debugger', oldConstant: 'DEVELOPMENT', newConstant: 'Development'),
+		new RenameClassConstFetch(oldClass: 'Tracy\Debugger', oldConstant: 'PRODUCTION', newConstant: 'Production'),
+		new RenameClassConstFetch(oldClass: 'Tracy\Debugger', oldConstant: 'VERSION', newConstant: 'Version'),
+		new RenameClassConstFetch(oldClass: 'Latte\Engine', oldConstant: 'CONTENT_CSS', newConstant: 'Css'),
+		new RenameClassConstFetch(oldClass: 'Latte\Engine', oldConstant: 'CONTENT_HTML', newConstant: 'Html'),
+		new RenameClassConstFetch(oldClass: 'Latte\Engine', oldConstant: 'CONTENT_ICAL', newConstant: 'ICal'),
+		new RenameClassConstFetch(oldClass: 'Latte\Engine', oldConstant: 'CONTENT_JS', newConstant: 'JavaScript'),
+		new RenameClassConstFetch(oldClass: 'Latte\Engine', oldConstant: 'CONTENT_TEXT', newConstant: 'Text'),
+		new RenameClassConstFetch(oldClass: 'Latte\Engine', oldConstant: 'CONTENT_XML', newConstant: 'Xml'),
+		new RenameClassConstFetch(oldClass: 'Nette\Security\UserStorage', oldConstant: 'LOGOUT_INACTIVITY', newConstant: 'LogoutInactivity'),
+		new RenameClassConstFetch(oldClass: 'Nette\Security\UserStorage', oldConstant: 'LOGOUT_MANUAL', newConstant: 'LogoutManual'),
+		new RenameClassConstFetch(oldClass: 'Nette\Utils\Image', oldConstant: 'AVIF', newConstant: 'AVIF'),
+		new RenameClassConstFetch(oldClass: 'Nette\Utils\Image', oldConstant: 'BMP', newConstant: 'BMP'),
+		new RenameClassConstFetch(oldClass: 'Nette\Utils\Image', oldConstant: 'GIF', newConstant: 'GIF'),
+		new RenameClassConstFetch(oldClass: 'Nette\Utils\Image', oldConstant: 'JPEG', newConstant: 'JPEG'),
+		new RenameClassConstFetch(oldClass: 'Nette\Utils\Image', oldConstant: 'PNG', newConstant: 'PNG'),
+		new RenameClassConstFetch(oldClass: 'Nette\Utils\Image', oldConstant: 'WEBP', newConstant: 'WEBP')
 	]);
