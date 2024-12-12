@@ -12,7 +12,8 @@ return RectorConfig::configure()
 	->withPaths([
 		__DIR__ . DIRECTORY_SEPARATOR . 'app'
 	])
-	->withPhpSets(php82: true)
+	->withPhpSets(php83: true)
+	->withIndent('tab')
 	->withSets([
 		SetList::CODE_QUALITY
 	])
