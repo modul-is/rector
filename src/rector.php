@@ -13,7 +13,7 @@ return RectorConfig::configure()
 	->withPaths([
 		__DIR__ . DIRECTORY_SEPARATOR . 'app'
 	])
-	->withPhpSets(php83: true)
+	->withPhpSets(php84: true)
 	->withIndent('	')
 	->withSkip([
 		FlipTypeControlToUseExclusiveTypeRector::class
